@@ -47,3 +47,9 @@ test('Should convert Set to Array', () => {
   team.addAll([bowerman, daemon, magician, swordsman, undead, zombie]);
   expect(team.toArray()).toEqual([bowerman, daemon, magician, swordsman, undead, zombie]);
 });
+
+test('Should add few characters', () => {
+  const team = new Team();
+  team.addAll([bowerman, daemon, magician]);
+  expect(team.members.size).toBe(3);
+})

@@ -17,4 +17,20 @@ export default class Team {
   toArray() {
     return [...this.members];
   }
+
+  [Symbol.iterator]() {
+    const characters = this.toArray();
+    return {
+      current: 0,
+      lasr: characters.length,
+      next() {
+        if (this.current < this.last) {
+          const elem = characters[this.current];
+          this.current += 1;
+          return { dine: false, value: elem };
+        }
+        return { done: true };
+      },
+    };
+  }
 }
